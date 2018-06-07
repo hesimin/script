@@ -11,6 +11,9 @@
 
 echo ">>>>>>>>>>>>>>>>>  spring-boot.sh  >>>>>>>>>>>>>>>>"
 
+Default_color="\033[0m" # 默认
+Color_r="\033[31m"
+
 CURR_DIR=`pwd`
 echo "[info] current dir： ${CURR_DIR}"
 
@@ -50,7 +53,7 @@ JAVA_OPTIONS=" -Xms300M -Xmx300M  -XX:+HeapDumpOnOutOfMemoryError "
 
 _JAR_KEYWORDS=" $2"
 if [ ! -f ${_JAR_KEYWORDS} ];then
-  echo "<<<<<<<<<<<<<<  ${_JAR_KEYWORDS} file not exist !!!!!!! " >&2
+  echo -e "${Color_r}<<<<<<<<<<<<<<  ${_JAR_KEYWORDS} file not exist !!!!!!! ${Default_color}" >&2
   exit 1
 fi
 #NAME=${APP_JAR%.*}
@@ -124,7 +127,7 @@ function fun_stop {
     done
 
     if fun_check_running_pid; then
-       echo -e "<<<<<<<<<<<<<<  Cannot stop process  !!!!!!!!!" >&2
+       echo -e "${Color_r}<<<<<<<<<<<<<<  Cannot stop process  !!!!!!!!!${Default_color}" >&2
        exit 1
     fi
 }
@@ -174,7 +177,7 @@ case "$1" in
     then
        echo  -e "<<<<<<<<<<<<<<  $APP_NAME start success ========="
     else
-       echo  -e "<<<<<<<<<<<<<<  $APP_NAME  start fail !!!!!!!!!!!" >&2
+       echo  -e "${Color_r}<<<<<<<<<<<<<<  $APP_NAME  start fail !!!!!!!!!!!${Default_color}" >&2
        exit 1
     fi
     ;;
