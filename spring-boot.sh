@@ -113,8 +113,16 @@ function fun_stop {
     if fun_check_running_pid; then
      echo -e "Cannot kill process, using kill -9 $PID "
      kill -9 ${PID}
-     sleep 5
     fi
+    for i in {1..10}; do
+        if fun_check_running_pid; then
+          echo -ne ". "
+          sleep 1
+        else
+          return 0
+        fi
+    done
+
     if fun_check_running_pid; then
        echo -e "<<<<<<<<<<<<<<  Cannot stop process  !!!!!!!!!" >&2
        exit 1
