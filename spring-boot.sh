@@ -12,7 +12,7 @@
 echo ">>>>>>>>>>>>>>>>>  spring-boot.sh  >>>>>>>>>>>>>>>>"
 
 CURR_DIR=`pwd`
-echo " current dir： ${CURR_DIR}"
+echo "[info] current dir： ${CURR_DIR}"
 
 ARGS=`getopt -o c: --long check: -n 'spring-boot.sh' -- "$@"`
 if [ $? != 0 ]; then
@@ -59,10 +59,10 @@ APP_NAME=$2
 
 JAVA_CMD="-jar $JAVA_OPTIONS $_JAR_KEYWORDS"
 
-echo "java_home= $JAVA_HOME"
+echo "[info] java_home= $JAVA_HOME"
 echo `java -version`
-echo `ps aux | grep ${_JAR_NAME} |grep java`
-echo "**** JAVA_CMD****:   $JAVA_CMD  "
+echo "[info] running >  `ps aux | grep ${_JAR_NAME} |grep java`"
+echo "[info] JAVA_CMD >   $JAVA_CMD  "
 
 function fun_get_pid {
  PID=$(ps aux | grep ${_JAR_NAME} |grep java| grep -v grep | awk '{print $2}' )
