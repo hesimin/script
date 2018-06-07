@@ -39,6 +39,7 @@ do
             ;;
         *)
             echo "Options error!"
+            echo -e "${Color_r}<<<<<<<<<<<<<<  Unsupported options: $1  !!!!!!!!!${Default_color}"
             exit 1
             ;;
     esac
