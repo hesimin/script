@@ -1,0 +1,19 @@
+*.iml
+*.ipr
+*.iws
+.idea
+*.class
+*.log
+out
+target
+
+# Eclipse Project files
+.classpath
+.project
+.settings/
+
+.DS_Store
+Thumbs.db
+
+
+LOG_PATH_IS_UNDEFINED
