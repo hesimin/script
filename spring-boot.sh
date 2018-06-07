@@ -3,8 +3,8 @@
 ######################################
 # desc: spring boot start script
 # use:
-# ./spring-boot start xxx.jar
-# ./spring-boot -c "curl --silent --fail http://localhost:12001" start xxx.jar
+# ./spring-boot.sh start xxx.jar
+# ./spring-boot.sh -c "curl --silent --fail http://localhost:12001" start xxx.jar
 # author: hesimincn@gmail.com
 # version: 0.3
 ######################################
