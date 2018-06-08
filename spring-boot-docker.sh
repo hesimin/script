@@ -19,8 +19,8 @@ if [ "$limit_in_bytes" -ne "9223372036854771712" ]
 then
     limit_in_megabytes=$(expr ${limit_in_bytes} \/ 1048576)
     heap_size=$(expr ${limit_in_megabytes} - ${RSERVED_MEGABYTES})
-    export JAVA_OPTS="-Xmx${heap_size}m $JAVA_OPTS"
-    echo JAVA_OPTS=${JAVA_OPTS}
+    export JAVA_OPTIONS="-Xmx${heap_size}m $JAVA_OPTIONS"
+    echo JAVA_OPTIONS=${JAVA_OPTIONS}
 fi
 
 source ./spring-boot.sh

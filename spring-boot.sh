@@ -50,8 +50,8 @@ export JAVA_HOME=/usr/local/jdk1.8
 export PATH=${JAVA_HOME}/bin:$PATH
 export CLASSPATH=.:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
 
-if [ ! -n "$JAVA_OPTS" ]; then
-    JAVA_OPTS=" -Xms300M -Xmx300M  -XX:+HeapDumpOnOutOfMemoryError "
+if [ ! -n "$JAVA_OPTIONS" ]; then
+    JAVA_OPTIONS=" -Xms300M -Xmx300M  -XX:+HeapDumpOnOutOfMemoryError "
 fi
 
 _JAR_KEYWORDS=" $2"
@@ -63,7 +63,7 @@ fi
 _JAR_NAME=`echo "$_JAR_KEYWORDS"|grep -oP '[^/| ]+\.(jar)'`
 APP_NAME=$2
 
-JAVA_CMD="-jar $JAVA_OPTS $_JAR_KEYWORDS"
+JAVA_CMD="-jar $JAVA_OPTIONS $_JAR_KEYWORDS"
 
 echo "[info] java_home= $JAVA_HOME"
 echo `java -version`
