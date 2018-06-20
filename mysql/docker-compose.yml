@@ -1,0 +1,16 @@
+version: '2'
+services:
+    hesimin_mysql:
+        # 要锁定镜像到最小的版本，因为mysql镜像升级后需要你手动在容器中执行命令去 mysql-upgrade，否则可能数据损坏
+        image: mysql:5.7.21
+        container_name: hesimin_mysql
+        ports:
+        - 13306:3306
+        environment:
+        - TZ=Asia/Shanghai
+        - MYSQL_ROOT_PASSWORD=root
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        volumes:
+        - /data/mysql/mysql_hesimin:/var/lib/mysql
+        - ./my.cnf:/etc/mysql/conf.d/self.cnf
+        restart: always
