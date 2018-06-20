@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-###########################
-# desc: 当对docker容器进行资源限制时，获取限制值来做java的内存限制（java默认获取到的内存大小是宿主机的内存大小）
-# author: hesimincn@gmail.com
+######################################
+# desc: spring boot start script
 # use: see spring-boot.sh
-###########################
+# author: hesimincn@gmail.com
+# version: 0.1
+######################################
 
 
 limit_in_bytes=$(cat /sys/fs/cgroup/memory/memory.limit_in_bytes)
