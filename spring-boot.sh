@@ -78,7 +78,7 @@ function fun_check_running {
  if [ -n "$CHECK_CMD" ]; then
      CHECK_RESULT=`eval ${CHECK_CMD}`
      if [ -n "$CHECK_RESULT" ]; then
-         echo -e "\nCHECK_RESULT:\n ${CHECK_RESULT}"
+         echo -e "\n[`date`]CHECK_RESULT:\n ${CHECK_RESULT}"
          return 0
      else
          return 1
@@ -107,7 +107,7 @@ function fun_stop {
     fi
 
     echo -ne "Waiting for process to stop: $PID "
-    for i in {1..20}; do
+    for i in {1..40}; do
         if fun_check_running_pid; then
           echo -ne ". "
           sleep 1
@@ -163,11 +163,11 @@ case "$1" in
 
     echo
     echo -ne "Starting. "
-    for i in {1..60}; do
+    for i in {1..90}; do
       if ! fun_check_running; then
           echo -ne ". "
           sleep 1
-      elif [[ ${CHECK_RUNNING_PID} && ${i} -lt 20 ]] ; then #pid检测的方式，需要等一段时间确认是否启动失败，此不准确
+      elif [[ ${CHECK_RUNNING_PID} && ${i} -lt 40 ]] ; then #pid检测的方式，需要等一段时间确认是否启动失败，此不准确
           echo -ne ". "
           sleep 1
       else
@@ -176,6 +176,7 @@ case "$1" in
     done
 
     echo
+    sleep 8
     if fun_check_running
     then
        echo  -e "<<<<<<<<<<<<<<  $APP_NAME start success ========="
