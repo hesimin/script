@@ -6,6 +6,7 @@
 #     eg: ./consul.sh (server|client) --server_nodes=192.168.1.8,192.168.1.9 --network_dev_name=eth0
 #          or Modify the variable definition of the script
 #     see the list of consul member: docker exec -it consul_server consul members
+#     ui： http://<ip>:8500/ui/
 # author: hesimincn@gmail.com
 # version: 0.1
 # ++++++++++++++++++++++++++++++++++++
