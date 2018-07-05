@@ -102,7 +102,6 @@ if [ -n "${arg_network_dev_name}" ];then
 fi
 
 retry_interval=15s
-node_name=$HOSTNAME
 ${is_server} && contain_name=consul_server || contain_name=consul_client
 
 # 获取网卡 的ip
@@ -114,7 +113,8 @@ else
     echo_info "use ip of network dev(${network_dev_name}): ${privIP}"
 fi
 
-#节点名不能重复，取ip最后一位做后缀
+#节点名不能重复，取ip最后一位做后缀,但是需要注意：如果使用docker集群，因为可能会被调度使ip变化，导致此标识发生变化，而产生新的 consul node，旧的 consul node 被标记为 Unhealthy
+node_name=$HOSTNAME
 node_name=${node_name}'-'`echo ${privIP}|awk -F '.' '{print $4;}' `
 
 # +++++++++++++++ 目录创建 +++++++++++++++
