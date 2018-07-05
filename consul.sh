@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
     
 # ++++++++++++++++++++++++++++++++++++
-# desc: 
+# desc: Starting consul in docker
 # use:
 #     eg: ./consul.sh (server|client) --server_nodes=192.168.1.8,192.168.1.9 --network_dev_name=eth0
 #          or Modify the variable definition of the script
