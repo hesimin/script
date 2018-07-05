@@ -51,7 +51,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
 export CLASSPATH=.:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
 
 if [ ! -n "$JAVA_OPTIONS" ]; then
-    JAVA_OPTIONS=" -Xms300M -Xmx300M  -XX:+HeapDumpOnOutOfMemoryError "
+    JAVA_OPTIONS=" -Xms300M -Xmx500M  -XX:+HeapDumpOnOutOfMemoryError "
 fi
 
 _JAR_KEYWORDS=" $2"
@@ -177,9 +177,11 @@ case "$1" in
 
     echo
     sleep 8
+    fun_get_pid
+
     if fun_check_running
     then
-       echo  -e "<<<<<<<<<<<<<<  $APP_NAME start success ========="
+       echo  -e "<<<<<<<<<<<<<<  $APP_NAME start success,pid:${PID} ========="
     else
        echo  -e "${Color_r}<<<<<<<<<<<<<<  $APP_NAME  start fail !!!!!!!!!!!${Default_color}" >&2
        exit 1
