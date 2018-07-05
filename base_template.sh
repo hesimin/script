@@ -35,7 +35,7 @@ function echo_base(){
 #-o或--options选项后面接可接受的短选项，如ab:c::，表示可接受的短选项为-a -b -c，其中-a选项不接参数，-b选项后必须接参数，-c选项的参数为可选的
 #-l或--long选项后面接可接受的长选项，用逗号分开，冒号的意义同短选项。
 #-n选项后接选项解析错误时提示的脚本名字
-ARGS=`getopt -o h --long help -n 'base_template.sh' -- "$@"`
+ARGS=`getopt -o h --long help -n "$0" -- "$@"`
 if [ $? != 0 ]; then
     echo_err "the getopt has error，Terminating..."
     exit 1
