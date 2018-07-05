@@ -4,6 +4,7 @@
 # desc: 
 # use:
 #     eg: ./consul.sh (server|client) --server_nodes=192.168.1.8,192.168.1.9 --network_dev_name=eth0
+#          or Modify the variable definition of the script
 #     see the list of consul member: docker exec -it consul_server consul members
 # author: hesimincn@gmail.com
 # version: 0.1
@@ -82,6 +83,8 @@ fi
 
 # +++++++++++++++ 定义变量 +++++++++++++++
 conf_dir=/opt/consul/conf
+# 使用的consul镜像版本
+consul_ver=1.2.0
 
 server_nodes=(
 192.168.51.149
@@ -91,12 +94,13 @@ server_nodes=(
 if [ -n "${arg_server_nodes}" ];then
    server_nodes=(${arg_server_nodes//,/ });
 fi
+
 # 网卡名
 network_dev_name=enp0s3
 if [ -n "${arg_network_dev_name}" ];then
    network_dev_name=${arg_network_dev_name};
 fi
-consul_ver=1.2.0
+
 retry_interval=15s
 node_name=$HOSTNAME
 ${is_server} && contain_name=consul_server || contain_name=consul_client
