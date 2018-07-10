@@ -129,6 +129,7 @@ function fun_stop {
         fi
     done
 
+    sleep 1
     if fun_check_running_pid; then
        echo -e "${Color_r}<<<<<<<<<<<<<<  Cannot stop process  !!!!!!!!!${Default_color}" >&2
        exit 1
