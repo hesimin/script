@@ -199,7 +199,7 @@ else
     \"start_join\": [${nodels}],\n
     \"server\": false,\n
     \"ui\": true,\n
-    \"node_name\": \"$HOSTNAME\"\n
+    \"node_name\": \"${node_name}\"\n
     }\n"
     echo $config
     echo -e ${config} > ${conf_dir}/client.json
