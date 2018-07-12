@@ -192,6 +192,7 @@ if ${is_server} ; then
         -advertise=${privIP}
 else
     config="{\n
+    \"datacenter\": \"dctest\",\n
     \"retry_join\": [${nodels}],\n
     \"retry_interval\": \"${retry_interval}\",\n
     \"rejoin_after_leave\": true,\n
