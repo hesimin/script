@@ -17,15 +17,15 @@ PINK='\E[1;35m'        #粉红
 RES='\E[0m'            #关闭
 
 function echo_err(){
-    echo -e  "${RED_COLOR}[error] ${@:1}${RES}"
+    echo -e  "${RED_COLOR}`date +'%F %T'` [error] ${@:1}${RES}"
 }
 
 function echo_warn(){
-    echo -e  "${YELLOW_COLOR}[warn] ${@:1}${RES}"
+    echo -e  "${YELLOW_COLOR}`date +'%F %T'` [warn] ${@:1}${RES}"
 }
 
 function echo_info(){
-    echo -e  "${GREEN_COLOR}[info] ${@:1}${RES}"
+    echo -e  "${GREEN_COLOR}`date +'%F %T'` [info] ${@:1}${RES}"
 }
 function echo_base(){
     echo -e  "${@:1}"
