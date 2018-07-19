@@ -175,14 +175,13 @@ case "$1" in
           break
       fi
     done
-
     echo
-    sleep 8
-    fun_get_pid
 
     if fun_check_running
     then
+       fun_get_pid
        echo  -e "<<<<<<<<<<<<<<  $APP_NAME start success,pid:${PID} ========="
+       exit 0
     else
        echo  -e "${Color_r}<<<<<<<<<<<<<<  $APP_NAME  start fail !!!!!!!!!!!${Default_color}" >&2
        exit 1
