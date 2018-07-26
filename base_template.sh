@@ -62,6 +62,8 @@ do
 done
 
 # +++++++++++++++ 定义变量 +++++++++++++++
+WORK_DIR=$(cd $(dirname $0); pwd)
+
 log_dir=/var/log
 
 
